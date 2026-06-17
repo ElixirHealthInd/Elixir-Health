@@ -5,9 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shrenik Mehta - VCard</title>
     <style>
+        /* Custom Font Integration - All Lowercase */
+        @font-face {
+            font-family: 'tesla';
+            src: url('assets/tesla.ttf') format('truetype'),
+                 url('assets/tesla.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body { font-family: sans-serif; margin: 0; background-color: #f9f9f9; text-align: center; }
-        .header { background: linear-gradient(to bottom, #4facfe, #00f2fe); color: white; padding: 40px 20px; }
-        .card-body { background: white; margin: -20px 20px 20px 20px; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        /* Header with Logo Alignment & Brand Hierarchy */
+        .header { 
+            background: linear-gradient(to bottom, #4facfe, #00f2fe); 
+            color: white; 
+            padding: 30px 20px 50px 20px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .brand-logo {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .brand-info {
+            text-align: center;
+            width: 100%;
+            padding: 0 60px;
+        }
+
+        .company-title {
+            font-family: 'tesla', sans-serif; /* Applied lowercase font name */
+            font-size: 1.8em;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .company-tagline {
+            font-size: 0.85em;
+            font-style: italic;
+            opacity: 0.9;
+            margin: 3px 0 0 0;
+            letter-spacing: 1px;
+        }
+
+        .header h1 { 
+            font-size: 1.6em; 
+            margin: 15px 0 5px 0; 
+        }
+        
+        .header p { 
+            margin: 0; 
+            font-size: 1em; 
+            opacity: 0.95; 
+        }
+
+        .card-body { background: white; margin: -20px 20px 20px 20px; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: relative; z-index: 2; }
         .info-box { border-bottom: 1px solid #eee; padding: 15px 0; text-align: left; }
         .label { color: #888; font-size: 0.8em; }
         .value { font-weight: bold; margin-top: 5px; }
@@ -55,12 +127,21 @@
 <body>
 
 <div class="header">
+    <div class="header-top">
+        <img src="assets/logo.png" alt="Elixir Health Logo" class="brand-logo">
+        
+        <div class="brand-info">
+            <h2 class="company-title">ELIXIR HEALTH</h2>
+            <p class="company-tagline">Delivering Trust.</p>
+        </div>
+    </div>
+    
     <h1>Shrenik Mehta</h1>
     <p>Medical Devices Distributor</p>
 </div>
 
 <div class="card-body">
-    <p style="font-size: 0.9em; color: #555;">Distributor for Interventional Radiology, Interventional Neuroradiology, and Neurosurgery related products. From Argon Medical Devices USA, Cerenovus INC, Miethke GMBH</p>
+    <p style="font-size: 0.9em; color: #555;">Distributor for Interventional Radiology, Interventional Neuroradiology, and Neurosurgery related products for Argon Medical Devices USA, Miethke GMBH</p>
     
     <div class="info-box">
         <div class="label">Phone</div>
@@ -251,13 +332,11 @@
             const currentPanel = currentItem.querySelector('.product-panel');
             const isAlreadyActive = currentItem.classList.contains('active');
             
-            // 1. Collapse all open items across sections to maintain clean UI flow
             document.querySelectorAll('.product-item').forEach(item => {
                 item.classList.remove('active');
                 item.querySelector('.product-panel').style.maxHeight = null;
             });
             
-            // 2. Toggle current item open if it wasn't already open
             if (!isAlreadyActive) {
                 currentItem.classList.add('active');
                 currentPanel.style.maxHeight = currentPanel.scrollHeight + "px";
