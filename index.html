@@ -12,6 +12,44 @@
         .label { color: #888; font-size: 0.8em; }
         .value { font-weight: bold; margin-top: 5px; }
         .btn { display: block; width: 90%; margin: 20px auto; padding: 15px; background: #4a76c9; color: white; border: none; border-radius: 8px; font-size: 1em; cursor: pointer; text-decoration: none; }
+        
+        /* Styles for Partners Section */
+        .partners-section { margin: 30px 20px; text-align: left; }
+        .partners-title { font-size: 1.4em; color: #333; border-bottom: 2px solid #4facfe; padding-bottom: 5px; margin-bottom: 20px; text-align: center; font-weight: bold; }
+        .partner-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .partner-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+        .partner-logo-placeholder { background: #f0f4f8; color: #4a76c9; padding: 10px 15px; border-radius: 6px; font-weight: bold; font-size: 0.9em; border: 1px dashed #4a76c9; }
+        .partner-name { font-size: 1.2em; color: #222; margin: 0; font-weight: bold; }
+        .partner-desc { font-size: 0.9em; color: #555; line-height: 1.5; margin-bottom: 20px; }
+        .product-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+        .tag { background: #e3f2fd; color: #0d47a1; font-size: 0.75em; padding: 5px 10px; border-radius: 20px; font-weight: bold; }
+        
+        /* Product Accordion Layout */
+        .product-segment-title { font-size: 1em; color: #4a76c9; font-weight: bold; margin: 20px 0 10px 0; border-left: 3px solid #4facfe; padding-left: 8px; }
+        .product-accordion { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        
+        .product-item { background: #fdfdfd; border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; transition: all 0.3s ease; }
+        
+        /* Interactive Header */
+        .product-trigger { width: 100%; text-align: left; background: none; border: none; padding: 14px; margin: 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit; }
+        .product-name { font-size: 0.95em; font-weight: bold; color: #222; }
+        .icon-arrow { font-size: 0.8em; color: #888; transition: transform 0.3s ease; }
+        
+        /* Expandable Content Panel */
+        .product-panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #fafafa; border-top: 0 solid #eaeaea; }
+        .product-content { padding: 15px; font-size: 0.85em; color: #555; line-height: 1.5; }
+        
+        .product-specs { margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ddd; }
+        .spec-item { margin-bottom: 4px; }
+        .spec-label { font-weight: bold; color: #333; }
+        
+        /* Active State Classes via JS */
+        .product-item.active { border-color: #4facfe; background: #fff; box-shadow: 0 2px 8px rgba(79, 172, 254, 0.1); }
+        .product-item.active .product-panel { border-top-width: 1px; }
+        .product-item.active .icon-arrow { transform: rotate(180deg); color: #4facfe; }
+        
+        .partner-link { display: inline-block; color: #4facfe; font-size: 0.9em; font-weight: bold; text-decoration: none; border-bottom: 1px solid #4facfe; transition: opacity 0.2s; margin-top: 15px; }
+        .partner-link:hover { opacity: 0.8; }
     </style>
 </head>
 <body>
@@ -40,7 +78,194 @@
     <a href="#" id="downloadVCard" class="btn">Add Contact</a>
 </div>
 
+<!-- Our Partners Section -->
+<div class="partners-section">
+    <div class="partners-title">Our Partners</div>
+    
+    <!-- Argon Medical Devices -->
+    <div class="partner-card">
+        <div class="partner-header">
+            <h3 class="partner-name">Argon Medical Devices</h3>
+            <div class="partner-logo-placeholder">ARGON MEDICAL</div>
+        </div>
+        
+        <div class="product-tags">
+            <span class="tag">Interventional Radiology</span>
+            <span class="tag">Interventional Neuroradiology</span>
+        </div>
+        
+        <p class="partner-desc">
+            A global leader providing high-quality, clinical specialty devices designed to improve safety, efficiency, and procedural reliability for interventional physicians. Tap any product to view details.
+        </p>
+
+        <!-- Thrombus & Vascular Management Portfolio -->
+        <div class="product-segment-title">Thrombus & Vascular Management</div>
+        <div class="product-accordion">
+            
+            <div class="product-item">
+                <button class="product-trigger">
+                    <span class="product-name">CLEANER™ & CLEANER Vac® Systems</span>
+                    <span class="icon-arrow">▼</span>
+                </button>
+                <div class="product-panel">
+                    <div class="product-content">
+                        <p>Wall-contact rotational thrombectomy devices purpose-built for mechanical fragmentation and controlled removal of soft thrombus in the peripheral vasculature.</p>
+                        <div class="product-specs">
+                            <div class="spec-item"><span class="spec-label">Key Indication:</span> Sinus & Peripheral Thrombus Management</div>
+                            <div class="spec-item"><span class="spec-label">Advantage:</span> Minimizes risk of vessel wall trauma while effectively macerating clots.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <button class="product-trigger">
+                    <span class="product-name">Option™ ELITE Vena Cava Filter</span>
+                    <span class="icon-arrow">▼</span>
+                </button>
+                <div class="product-panel">
+                    <div class="product-content">
+                        <p>A premier, highly versatile retrievable IVC filter option designed to provide advanced protection against pulmonary embolism (PE). Can be delivered via femoral, jugular, or antecubital access options.</p>
+                        <div class="product-specs">
+                            <div class="spec-item"><span class="spec-label">Delivery Options:</span> Single-loop or multi-loop retrieval kits</div>
+                            <div class="spec-item"><span class="spec-label">Structural Tech:</span> Nitinol anchor design ensures reliable centering.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Biopsy & Interventional Oncology Portfolio -->
+        <div class="product-segment-title">Biopsy & Interventional Oncology</div>
+        <div class="product-accordion">
+
+            <div class="product-item">
+                <button class="product-trigger">
+                    <span class="product-name">BioPince® Ultra Full Core Instrument</span>
+                    <span class="icon-arrow">▼</span>
+                </button>
+                <div class="product-panel">
+                    <div class="product-content">
+                        <p>Advanced tissue biopsy system delivering a complete, cylindrical core specimen rather than fragmented tissue, maximizing accuracy for pathology diagnostics.</p>
+                        <div class="product-specs">
+                            <div class="spec-item"><span class="spec-label">Sample Yield:</span> Up to 59% more tissue volume than standard notch needles</div>
+                            <div class="spec-item"><span class="spec-label">Features:</span> Variable throw lengths (13mm, 23mm, 33mm) for safety near critical structures.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <button class="product-trigger">
+                    <span class="product-name">SeQure® & DraKon™ Microcatheters</span>
+                    <span class="icon-arrow">▼</span>
+                </button>
+                <div class="product-panel">
+                    <div class="product-content">
+                        <p>Specialized high-pressure microcatheters tailored for smooth navigation through tortuous peripheral anatomy during complex embolization or neuroradiological procedures.</p>
+                        <div class="product-specs">
+                            <div class="spec-item"><span class="spec-label">SeQure® Tech:</span> Built-in flow dynamics engineered to reduce the risk of non-target embolization.</div>
+                            <div class="spec-item"><span class="spec-label">DraKon™ Tech:</span> Excellent torque control and high-pressure capacity.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Drainage & Portal Access Portfolio -->
+        <div class="product-segment-title">Drainage & Portal Access</div>
+        <div class="product-accordion">
+
+            <div class="product-item">
+                <button class="product-trigger">
+                    <span class="product-name">SKATER™ Drainage Catheters</span>
+                    <span class="icon-arrow">▼</span>
+                </button>
+                <div class="product-panel">
+                    <div class="product-content">
+                        <p>Comprehensive range of premium multi-purpose, biliary, nephrostomy, and mini-loop drainage catheters built for consistent kink resistance and fluid flow reliability.</p>
+                        <div class="product-specs">
+                            <div class="spec-item"><span class="spec-label">Material:</span> Soft, bio-compatible polyurethane material designed for patient comfort</div>
+                            <div class="spec-item"><span class="spec-label">Design:</span> Slip-Coat™ hydrophilic coating aids smooth insertion tracks.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <a href="https://www.argonmedical.com" target="_blank" class="partner-link">Visit Website →</a>
+    </div>
+
+    <!-- MIETHKE GmbH -->
+    <div class="partner-card">
+        <div class="partner-header">
+            <h3 class="partner-name">MIETHKE GmbH</h3>
+            <div class="partner-logo-placeholder">MIETHKE</div>
+        </div>
+        
+        <div class="product-tags">
+            <span class="tag">Neurosurgery</span>
+            <span class="tag">Hydrocephalus Management</span>
+        </div>
+        
+        <p class="partner-desc">
+            A prominent leader in neurosurgical care specializing in innovative gravitational valve systems for Hydrocephalus treatment, protecting patients from over-drainage complications.
+        </p>
+
+        <!-- Hydrocephalus Management Portfolio -->
+        <div class="product-segment-title">Hydrocephalus Valve Systems</div>
+        <div class="product-accordion">
+            
+            <div class="product-item">
+                <button class="product-trigger">
+                    <span class="product-name">proGAV 2.0® Adjustable Shunt System</span>
+                    <span class="icon-arrow">▼</span>
+                </button>
+                <div class="product-panel">
+                    <div class="product-content">
+                        <p>An advanced, posture-dependent adjustable shunt system engineered to deliver precision pressure adjustments while mitigating the common risks of accidental setting changes due to external magnetic fields.</p>
+                        <div class="product-specs">
+                            <div class="spec-item"><span class="spec-label">Key Mechanism:</span> Combined adjustable differential pressure unit and fixed gravitational unit.</div>
+                            <div class="spec-item"><span class="spec-label">Safety Feature:</span> 3-Tesla MRI safety lock prevents inadvertent pressure updates.</div>
+                            <div class="spec-item"><span class="spec-label">Feedback System:</span> Tactile "Active-Lock" mechanism guarantees precise pressure settings without radiographic confirmation.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <a href="https://www.miethke.com" target="_blank" class="partner-link">Visit Website →</a>
+    </div>
+
+</div>
+
 <script>
+    /* Accordion Functionality script */
+    document.querySelectorAll('.product-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const currentItem = trigger.parentElement;
+            const currentPanel = currentItem.querySelector('.product-panel');
+            const isAlreadyActive = currentItem.classList.contains('active');
+            
+            // 1. Collapse all open items across sections to maintain clean UI flow
+            document.querySelectorAll('.product-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.product-panel').style.maxHeight = null;
+            });
+            
+            // 2. Toggle current item open if it wasn't already open
+            if (!isAlreadyActive) {
+                currentItem.classList.add('active');
+                currentPanel.style.maxHeight = currentPanel.scrollHeight + "px";
+            }
+        });
+    });
+
+    /* Original VCard Download Script logic */
     const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:Shrenik Mehta
